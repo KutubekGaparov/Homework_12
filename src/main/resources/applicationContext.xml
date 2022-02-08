@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="application.properties"/>
+
+    <bean id="myCow"
+          class="peaksoft.Cow">
+        <property name="breed" value="${cow.breed}"/>
+        <property name="color" value="${cow.color}"/>
+    </bean>
+
+    <bean id="myHorse"
+          class="peaksoft.Horse">
+        <property name="breed" value="${horse.breed}"/>
+        <property name="color" value="${horse.color}"/>
+    </bean>
+
+    <bean id="myPerson1"
+          class="peaksoft.Person">
+        <property name="name" value="${person.name}"/>
+        <property name="age" value="${person.age}"/>
+        <property name="animal" ref="myCow"/>
+    </bean>
+
+    <bean id="myPerson2"
+          class="peaksoft.Person">
+        <property name="name" value="${person2.name}"/>
+        <property name="age" value="${person2.age}"/>
+        <property name="animal" ref="myHorse"/>
+    </bean>
+
+
+</beans>
